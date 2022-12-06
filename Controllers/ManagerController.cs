@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ZooParadise.Core.Constants;
 using ZooParadise.Core.Contracts;
-using ZooParadise.Core.Models.Manager;
+using ZooParadise.Core.Models.ManagerModels;
 using ZooParadise.Extensions;
 
 namespace ZooParadise.Controllers
