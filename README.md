@@ -1,6 +1,6 @@
 🐶 ZooParadise is an online shop where you can find the perfect pet for you.
 
-🐶Tech Stack
+💻Tech Stack
 
 MSSQL
 
@@ -19,21 +19,23 @@ ASP.NET Core Areas
 
 🎯 Features
 
-Becoming a dealer
+Becoming a manager
 
-Reading car's details
+Adding Pets
 
-Removing cars for sale
+Reading pet's details
 
-Searching for cars
+Removing pets from the shop
 
-Buying cars
+Searching for pets
 
-Selling cars
+Adopting pets
+
+Leaving pets
 
 
-🎯 Roles
+👨🏽‍💻 Roles
 
-User => Can only search for cars and see their details. You become user when you register.
+User => Can only search for pets and see their details. You become user when you register.
 
-Admin => Can buy cars, sell cars and delete cars. You become Admin when you become a Dealer.
+Administrator => Can adopt pets, edit pets, leave pets and delete pets. You become Administrator when you become a Manager.
