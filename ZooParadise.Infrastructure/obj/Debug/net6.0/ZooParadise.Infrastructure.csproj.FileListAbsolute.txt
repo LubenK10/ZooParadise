@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\bin\Debug\net6.0\ZooParadise.Infrastructure.deps.json
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\bin\Debug\net6.0\ZooParadise.Infrastructure.runtimeconfig.json
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\bin\Debug\net6.0\ZooParadise.Infrastructure.dll
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\bin\Debug\net6.0\ZooParadise.Infrastructure.pdb
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.AssemblyInfo.cs
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.dll
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\refint\ZooParadise.Infrastructure.dll
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.pdb
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ZooParadise.Infrastructure.genruntimeconfig.cache
+C:\Users\Admin\source\repos\ZooParadise.Infrastructure\obj\Debug\net6.0\ref\ZooParadise.Infrastructure.dll
