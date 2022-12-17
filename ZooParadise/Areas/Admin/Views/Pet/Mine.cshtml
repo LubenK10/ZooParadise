@@ -1,0 +1,37 @@
+﻿@using ZooParadise.Areas.Admin.Models
+@model MyPetsModel
+
+@{
+    ViewBag.Title = "My Pets";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<h4>My Added Pets</h4>
+
+@if (!Model.AddedPets.Any())
+{
+    <h2 class="text-center">You have no added pets yet!</h2>
+}
+
+<div class="row">
+    @foreach (var pet in Model.AddedPets)
+    {
+        @await Html.PartialAsync("~/Views/Shared/_PetPartial.cshtml", pet)
+    }
+</div>
+
+<h4>My Adopted Pets</h4>
+
+@if (!Model.AdoptedPets.Any())
+{
+    <h2 class="text-center">You have no Adopted Pets yet!</h2>
+}
+
+<div class="row">
+    @foreach (var pet in Model.AdoptedPets)
+    {
+        @await Html.PartialAsync("~/Views/Shared/_PetPartial.cshtml", pet)
+    }
+</div>
