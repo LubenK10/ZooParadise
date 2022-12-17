@@ -1,0 +1,23 @@
+﻿@using ZooParadise.Core.Models.Pet
+@model IEnumerable<PetServiceModel>
+
+@{
+    ViewBag.Title = "My Pets";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var pet in Model)
+        {
+            <partial name="_PetPartial" model="@pet" />
+        }
+    </div>
+}
+else
+{
+    <h3 class="text-center">You have no pets yet!</h3>
+}

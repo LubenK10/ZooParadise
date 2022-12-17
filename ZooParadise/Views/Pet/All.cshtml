@@ -1,0 +1,131 @@
+﻿@using ZooParadise.Core.Models.Pet
+@model AllPetsModel
+
+@{
+    ViewBag.Title = "All Pets";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form method="get">
+    <div class="row">
+
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="AnimalType"></label>
+                <select asp-for="AnimalType" class="form-control">
+                    <option value="">All</option>
+                    @foreach (var category in Model.AnimalTypes)
+                    {
+                        <option value="@category">@category</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="Colour"></label>
+                <select asp-for="Colour" class="form-control">
+                    <option value="">All</option>
+                    @foreach (var colour in Model.Colours)
+                    {
+                        <option value="@colour">@colour</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="Gender"></label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="">All</option>
+                    @foreach (var gender in Model.Genders)
+                    {
+                        <option value="@gender">@gender</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label asp-for="SearchTerm"></label>
+            <input asp-for="SearchTerm" class="form-control" placeholder="...">
+        </div>
+
+        <div class="form-group col-md-3">
+            <div class="form-group">
+                <label asp-for="Sorting"></label>
+                <select asp-for="Sorting" class="form-control">
+                    <option value="0">Newest</option>
+                    <option value="1"> Alphabetically</option>
+                    <option value="2">Price</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group mt-4 p-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@{
+    var previousPage = Model.CurrentPage - 1;
+    if (previousPage < 1)
+    {
+        previousPage = 1;
+    }
+
+    var maxPage = Math.Ceiling((double)Model.TotalPetCount /
+        AllPetsModel.PetsPerPage);
+}
+
+<div class="row mb-5">
+    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
+           asp-controller="Pet"
+           asp-action="All"
+           asp-route-currentPage="@previousPage"
+           asp-route-animalType="@Model.AnimalType"
+           asp-route-colour="@Model.Colour"
+           asp-route-gender="@Model.Gender"
+           asp-route-searchTerm="@Model.SearchTerm"
+           asp-route-sorting="@((int)Model.Sorting)"><<</a>
+    </div>
+
+    @{
+        var shouldButtonBeDisabled = Model.CurrentPage == maxPage ||
+        !Model.Pets.Any();
+    }
+
+    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary 
+           @(shouldButtonBeDisabled ? "disabled" : string.Empty)"
+           asp-controller="Pet"
+           asp-action="All"
+           asp-route-currentPage="@(Model.CurrentPage + 1)"
+           asp-route-animalType="@Model.AnimalType"
+           asp-route-colour="@Model.Colour"
+           asp-route-gender="@Model.Gender"
+           asp-route-searchTerm="@Model.SearchTerm"
+           asp-route-sorting="@((int)Model.Sorting)">>></a>
+    </div>
+</div>
+
+@if (!Model.Pets.Any())
+{
+    <h2 class="text-center">No pets found by the given criteria!</h2>
+}
+
+<div class="row">
+    @foreach (var pet in Model.Pets)
+    {
+        <partial name="_AllPetPartial" model="@pet" />
+    }
+</div>

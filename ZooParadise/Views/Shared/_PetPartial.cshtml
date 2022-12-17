@@ -1,0 +1,43 @@
+﻿@using ZooParadise.Core.Models.Pet
+@model PetServiceModel
+
+<div class="col-md-4">
+    <div class="card mb-3">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="House Image">
+        <div class="card-body text-center">
+            <h4>@Model.Name</h4>
+            <h6>Age: <b>@Model.Age</b></h6>
+            <h6>
+                Price:
+                <b>@String.Format("{0:f2}", Model.Price) BGN</b>
+            </h6>
+            <h6>(@(Model.IsAdopted ? "Adopted" : "Looking for a new home"))</h6>
+            <br />
+            <a asp-area="" asp-controller="Pet" asp-action="Details" asp-route-id="@Model.Id"
+             class="btn btn-warning">Details</a>
+
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <a asp-area="" asp-controller="Pet" asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn btn-warning">Edit</a>
+                <a asp-area="" asp-controller="Pet" asp-action="Delete" asp-route-id="@Model.Id"
+               class="btn btn-danger">Delete</a>
+                <p></p>
+                @if (!Model.IsAdopted)
+                {
+                    <form class="input-group-sm" asp-area="" asp-controller="Pet"
+                  asp-action="Adopt" asp-route-id="@Model.Id" method="post">
+                        <input class="btn btn-primary" type="submit" value="Adopt" />
+                    </form>
+                }
+                else
+                {
+                    <form asp-area="" asp-controller="Pet" asp-action="Leave"
+                  asp-route-id="@Model.Id" method="post">
+                        <input class="btn btn-primary" type="submit" value="Leave" />
+                    </form>
+                }
+            }
+        </div>
+    </div>
+</div>

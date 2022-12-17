@@ -1,0 +1,62 @@
+﻿@using ZooParadise.Core.Models.Pet
+@model DetailsPetModel
+
+@{
+    ViewBag.Title = "Pet Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="container" style="display:inline">
+    <div class="row">
+        <div class="col-4">
+            <img class="card-img-top" style="width: 20rem;"
+                 src="@Model.ImageUrl" alt="Pet Image">
+        </div>
+        <div class="card col-8 border-0">
+            <p style="font-size:25px;"><u>@Model.Name</u></p>
+            <p>Age: <b>@Model.Age</b></p>
+            <p>
+                Price :
+                <b>@String.Format("{0:f2}", Model.Price) BGN</b>
+            </p>
+            <p>@Model.Description</p>
+            <p>Animal Type: <b>@Model.AnimalType</b></p>
+             <p>Colour: <b>@Model.Colour</b></p>
+             <p>Gender: <b>@Model.Gender</b></p>
+            <p><i>(@(Model.IsAdopted ? "Adopted" : "Still looking for home"))</i></p>
+            <div class="form-inline">
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-warning" asp-controller="Pet" asp-action="Edit"
+                       asp-route-id="@Model.Id">Edit</a>
+                    <a class="ml-2 btn btn-danger" asp-controller="Pet" asp-action="Delete"
+                       asp-route-id="@Model.Id">Delete</a>
+                    @if (!Model.IsAdopted)
+                    {
+                        <form class="ml-2" asp-controller="Pet"
+                              asp-action="Adopt" asp-route-id="@Model.Id" method="post">
+                            <input class="btn btn-primary" type="submit" value="Adopt" />
+                        </form>
+                    }
+                    else
+                    {
+                        <form class="ml-2" asp-controller="Pet" asp-action="Leave"
+                              asp-route-id="@Model.Id" method="post">
+                            <input class="btn btn-primary" type="submit" value="Leave" />
+                        </form>
+                    }
+                }
+            </div>
+            <p></p>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Agent Info</h5>
+                    <p class="card-text">Email:  @Model.Manager.Email</p>
+                    <p class="card-text">Phone Number: @Model.Manager.Phone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

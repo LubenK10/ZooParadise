@@ -1,0 +1,15 @@
+﻿@using ZooParadise.Core.Models.Pet
+@model PetModel
+
+@{
+    ViewBag.Title = "Edit Pet";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<partial name="_PetView" model="@Model" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
