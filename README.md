@@ -3,17 +3,17 @@
 
 MSSQL
 
-NUnit
-
-Bootstrap
-
-JavaScript
-
 Entity Framework
 
 ASP.NET Core 6.0
 
 ASP.NET Core Areas
+
+NUnit
+
+Bootstrap
+
+JavaScript
 
 
 🎯 Features
@@ -35,6 +35,6 @@ Leaving pets
 
 👨🏽‍💻 Roles
 
-User => Can only search for pets and see their details. You become user when you register.
+User => Can search for pets and see their details. You become user when you register.
 
 Administrator => Can adopt pets, edit pets, leave pets and delete pets. You become Administrator when you become a Manager.
